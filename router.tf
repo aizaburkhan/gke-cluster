@@ -18,7 +18,7 @@ resource "google_compute_router_nat" "nat" {
     source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
   }
 
-  nat_ips = [google_compute_address.nat.self-link]
+  nat_ips = [google_compute_address.nat.self_link]
 }
 
 resource "google_compute_address" "nat" {

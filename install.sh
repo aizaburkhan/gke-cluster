@@ -1,9 +1,7 @@
 #!/bin/bash
 
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
-
+# CHECK IF IT WORKS WITHOUT COMMAND
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 sudo apt-update
@@ -25,6 +23,8 @@ unzip terraform_1.7.4_linux_amd64.zip
 
 sudo mv terraform /usr/local/bin
 
-gcloud auth login
+gcloud auth application-default login #to interact with GCP via SDK
 
-gcloud storage buckets create gs://project3-group-hera --location=US
+gcloud config set project certain-ellipse-413904 #var
+
+gcloud storage buckets create gs://project3-group-hera --location=US #var

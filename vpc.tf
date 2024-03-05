@@ -7,14 +7,14 @@ resource "google_project_service" "container_api" {
 }
 
 resource "google_compute_network" "vpc_network" {
-  project                 = "project-vpc"
+  name                    = "project-vpc"
   routing_mode            = "REGIONAL"
   auto_create_subnetworks = false
   mtu                     = 1460
   delete_default_routes_on_create = false
 
   depends_on = [
-    google_project_service.compute_api
+    google_project_service.compute_api,
     google_project_service.container_api
   ]
   }
