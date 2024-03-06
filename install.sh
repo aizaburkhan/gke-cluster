@@ -23,17 +23,11 @@ unzip terraform_1.7.4_linux_amd64.zip
 
 sudo mv terraform /usr/local/bin
 
-# gcloud auth application-default login #to interact with GCP via SDK
+gcloud init
 
-# gcloud config set project certain-ellipse-413904 #var
+gcloud projects create group-project-3-hera --name="Group Project"  #var
 
-# gcloud config set account herabakirova@gmail.com
-
-# gcloud services enable cloudresourcemanager.googleapis.com
-
-# gcloud projects create project-group-3-kaizen --name="Group 3 Project"
-
-# gcloud init
+gcloud config set project group-project-3-hera  #var
 
 # gcloud storage buckets create gs://project3-group-hera --location=US #var
 
