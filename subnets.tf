@@ -1,5 +1,6 @@
 resource "google_compute_subnetwork" "private" {
   name          = "private"
+  project = "project-group-hera-3" #variables
   ip_cidr_range = "10.0.0.0/16"
   region        = "us-central1"
   network       = google_compute_network.vpc_network.id

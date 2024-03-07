@@ -23,12 +23,12 @@ unzip terraform_1.7.4_linux_amd64.zip
 
 sudo mv terraform /usr/local/bin
 
-gcloud init
+gcloud auth login
 
-gcloud projects create group-project-3-hera --name="Group Project"  #var
+gcloud projects create project-group-hera-3 --name="Hera Project" #var
 
-gcloud config set project group-project-3-hera  #var
+gcloud billing projects link project-group-hera-3 --billing-account 014687-E3A505-12EFE8  #var
 
-# gcloud storage buckets create gs://project3-group-hera --location=US #var
+gcloud storage buckets create gs://project3-group-hera --location=US #var
 
-# gcloud iam roles create ProjectCreator --project=certain-ellipse-413904 --title=ProjectCreator --permissions=resourcemanager.projects.create
+gcloud auth application-default login
