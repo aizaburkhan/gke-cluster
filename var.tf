@@ -1,21 +1,6 @@
 variable project_name {
   type        = string
-  default     = "project-group-hera-4"
-}
-
-variable project_name_display {
-  type        = string
-  default     = "Group Project 3"    
-}
-
-variable billing_account {
-  type        = string
-  default     = "014687-E3A505-12EFE8"    
-}
-
-variable bucket {
-  type        = string
-  default     = "project4-group-hera"    
+  default     = "project-group-hera-5"
 }
 
 variable region {
