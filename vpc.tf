@@ -1,17 +1,17 @@
 resource "google_project_service" "compute_api" {
   service = "compute.googleapis.com"
-  project = "project-group-hera-3" #variables
+  project = var.project_name #variables
 
 }
 
 resource "google_project_service" "container_api" {
   service = "container.googleapis.com"
-  project = "project-group-hera-3" #variables
+  project = var.project_name #variables
 }
 
 resource "google_compute_network" "vpc_network" {
-  name                    = "project-vpc"
-  project = "project-group-hera-3" #variables
+  name                    = var.vpc_name
+  project                 = var.project_name 
   routing_mode            = "REGIONAL"
   auto_create_subnetworks = false
   mtu                     = 1460

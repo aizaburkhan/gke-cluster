@@ -1,15 +1,15 @@
 # Cloud Router enables you to dynamically exchange routes between your Virtual Private Cloud (VPC) and peer network by using Border Gateway Protocol (BGP).
 resource "google_compute_router" "router" {
-  name    = "router-project"
-  region  = "us-central1"
-  project = "project-group-hera-3" #variables
+  name    = var.router_name
+  region  = var.region
+  project = var.project_name
   network = google_compute_network.vpc_network.id
 }
 
 # Enables you to provision your application instances without public IP addresses while also allowing them to access the internet.
 resource "google_compute_router_nat" "nat" {
-  name                               = "my-router-nat"
-  project = "project-group-hera-3" #variables
+  name                               = var.nat_name
+  project                            = var.project_name
   router                             = google_compute_router.router.name
   region                             = google_compute_router.router.region
 
@@ -25,8 +25,8 @@ resource "google_compute_router_nat" "nat" {
 }
 
 resource "google_compute_address" "nat" {
-    name = "nat"
-    project = "project-group-hera-3" #variables
+    name = var.compute_address_nat_name
+    project = var.project_name
     address_type = "EXTERNAL"
     network_tier = "STANDARD"
 

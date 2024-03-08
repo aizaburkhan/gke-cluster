@@ -1,10 +1,10 @@
 provider "google" {
-  region  = "us-central1"
+  region  = var.region
 }
 
  terraform { 
   backend "gcs" {
-    bucket  = "project3-group-hera"
+    bucket  = "project4-group-hera" #Cannot use variables.
     prefix = "terraform/state"
   }
 

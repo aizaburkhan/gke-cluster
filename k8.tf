@@ -1,7 +1,7 @@
 resource "google_container_cluster" "primary" {
-  name     = "group3-project"
-  project = "project-group-hera-3" #variables
-  location = "us-central1"
+  name     = var.cluster_name
+  project  = var.project_name
+  location = var.region
   # We can't create a cluster with no node pool defined, but we want to only use separately managed node pools. So we create the smallest possible default node pool and immediately delete it.
   remove_default_node_pool = true
   initial_node_count       = 1
@@ -10,21 +10,20 @@ resource "google_container_cluster" "primary" {
   networking_mode = "VPC_NATIVE"
 
   ip_allocation_policy {
-    cluster_secondary_range_name = "k8-pod"
-    services_secondary_range_name = "k8-service"
+    cluster_secondary_range_name = var.secondary_ip_range1_name
+    services_secondary_range_name = var.secondary_ip_range2_name
   }
 }
 
 resource "google_service_account" "kubernetes" {
   account_id   = "kubernetes"
-  project = "project-group-hera-3" #variables
+  project = var.project_name
 }
 
-
 resource "google_container_node_pool" "primary" {
-  name       = "primary"
-  project = "project-group-hera-3" #variables
-  location   = "us-central1"
+  name       = var.node_pool_1_name
+  project    = var.project_name
+  location   = var.region
   cluster    = google_container_cluster.primary.name
   node_count = 1
   
@@ -35,7 +34,7 @@ resource "google_container_node_pool" "primary" {
 
   node_config {
     preemptible  = false
-    machine_type = "e2-small"
+    machine_type = var.instance_type
 
     labels = {
       role = "general"
@@ -51,9 +50,9 @@ resource "google_container_node_pool" "primary" {
 
 
 resource "google_container_node_pool" "spot" {
-  name       = "spot"
-  project = "project-group-hera-3" #variables
-  location   = "us-central1"
+  name       = var.node_pool_2_name
+  project    = var.project_name
+  location   = var.region
   cluster    = google_container_cluster.primary.name
   
   management {
@@ -68,7 +67,7 @@ resource "google_container_node_pool" "spot" {
 
   node_config {
     preemptible  = true
-    machine_type = "e2-small"
+    machine_type = var.instance_type
 
     labels = {
       team = "devops"

@@ -1,7 +1,7 @@
-#!/bin/bash
+!/bin/bash
 
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-# CHECK IF IT WORKS WITHOUT COMMAND
+
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
 sudo apt-update
@@ -25,10 +25,11 @@ sudo mv terraform /usr/local/bin
 
 gcloud auth login
 
-gcloud projects create project-group-hera-3 --name="Hera Project" #var
+gcloud projects create $project_name --name=$project_name_display #var
 
-gcloud billing projects link project-group-hera-3 --billing-account 014687-E3A505-12EFE8  #var
-
-gcloud storage buckets create gs://project3-group-hera --location=US #var
+gcloud billing projects link $project_name --billing-account $billing_account  #var
 
 gcloud auth application-default login
+
+gcloud storage buckets create gs://$bucket --location=US --project=$project_name #var
+
