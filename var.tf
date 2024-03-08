@@ -1,6 +1,6 @@
 variable project_name {
   type        = string
-  default     = "project-group-hera-5"
+  default     = "project-group-hera-6"
 }
 
 variable region {
@@ -76,4 +76,29 @@ variable node_pool_2_name {
 variable instance_type {
   type        = string
   default     = "e2-small"    
+}
+
+variable kubeconfig {
+  type        = string
+  default     = "~/.kube/config"
+}
+
+variable kubernetes_dashboard {
+  type        = string
+  default     = "kubernetes-dashboard"
+}
+
+variable dashboard_repo {
+  type        = string
+  default     = "https://kubernetes.github.io/dashboard/"
+}
+
+variable namespace {
+  type        = string
+  default     = "kube-system"
+}
+
+variable service_type {
+  type        = string
+  default     = "LoadBalancer"
 }

@@ -2,10 +2,10 @@
 
 
 # Variables:
-project_name="project-group-hera-5"
-project_name_display="Group-Project-5"
+project_name="project-group-hera-6"
+project_name_display="Group-Project-6"
 billing_account="014687-E3A505-12EFE8"
-bucket="project5-group-hera"
+bucket="project6-group-hera"
 
 #Installing kubectl:
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
