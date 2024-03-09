@@ -2,10 +2,10 @@
 
 
 # Variables:
-project_name="project-group-hera-6"
-project_name_display="Group-Project-6"
+project_name="project-group-hera-7"
+project_name_display="Group-Project-7"
 billing_account="014687-E3A505-12EFE8"
-bucket="project6-group-hera"
+bucket="project7-group-hera"
 
 #Installing kubectl:
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -27,7 +27,7 @@ sudo mv terraform /usr/local/bin
 
 # Installing helm:
 wget https://get.helm.sh/helm-v3.14.2-linux-amd64.tar.gz
-helm=$(ls | grep helm)
+helm=$(ls | grep helm-)
 tar -zxvf $helm
 binary=$(ls | grep ^linux-amd64)
 mv $binary/helm /usr/local/bin

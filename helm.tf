@@ -36,5 +36,4 @@ resource "helm_release" "kubernetes_dashboard" {
     name  = "rbac.clusterReadOnlyRole"
     value = "true"
   }
-
 }
