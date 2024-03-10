@@ -1,6 +1,6 @@
 variable project_name {
   type        = string
-  default     = "project-group-hera-7"
+  default     = "project-group-hera-10"
 }
 
 variable region {
@@ -20,7 +20,7 @@ variable subnet_name {
 
 variable subnet_cidr {
   type        = string
-  default     = "10.0.0.0/16" 
+  default     = "10.0.0.0/18" 
 }
 
 variable secondary_ip_range1_name {
@@ -30,7 +30,7 @@ variable secondary_ip_range1_name {
 
 variable secondary_ip_range1_cidr {
   type        = string
-  default     = "10.1.0.0/20" 
+  default     = "10.48.0.0/14" 
 }
 
 variable secondary_ip_range2_name {
@@ -40,7 +40,7 @@ variable secondary_ip_range2_name {
 
 variable secondary_ip_range2_cidr {
   type        = string
-  default     = "10.2.0.0/20" 
+  default     = "10.52.0.0/20" 
 }
 
 variable router_name {

@@ -13,14 +13,19 @@ resource "google_container_cluster" "primary" {
     cluster_secondary_range_name = var.secondary_ip_range1_name
     services_secondary_range_name = var.secondary_ip_range2_name
   }
-  
-    provisioner "remote-exec" {
-    inline = [
-      "apt-get install google-cloud-sdk-gke-gcloud-auth-plugin -y",
-      "gcloud container clusters get-credentials ${var.cluster_name} --region ${var.region} --project ${var.project_name}",
-    ]
-  }
 }
+
+# resource "null_resource" "get_gke_credentials" {
+#   depends_on = [google_container_cluster.primary]
+
+#   triggers = {
+#     cluster_name = google_container_cluster.primary.name
+#   }
+
+#   provisioner "local-exec" {
+#     command = "gcloud container clusters get-credentials ${google_container_cluster.primary.name} --region ${var.region} --project ${var.project_name}"
+#   }
+# }
 
 resource "google_service_account" "kubernetes" {
   account_id   = "kubernetes"
