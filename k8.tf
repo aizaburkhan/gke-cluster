@@ -9,10 +9,6 @@ resource "google_container_cluster" "primary" {
   subnetwork = google_compute_subnetwork.private.self_link
   networking_mode = "VPC_NATIVE"
 
-    metadata {
-    enable_kubernetes_dashboard = true
-  }
-
   ip_allocation_policy {
     cluster_secondary_range_name = var.secondary_ip_range1_name
     services_secondary_range_name = var.secondary_ip_range2_name

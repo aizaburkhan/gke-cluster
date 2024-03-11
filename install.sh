@@ -2,10 +2,10 @@
 
 
 # Variables:
-project_name="project-group-hera-01"
-project_name_display="Group-Project-01"
+project_name="project-group-hera-02"
+project_name_display="Group-Project-02"
 billing_account="014687-E3A505-12EFE8"
-bucket="project01-group-hera"
+bucket="project02-group-hera"
 
 #Installing kubectl:
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -39,6 +39,6 @@ gcloud auth login
 gcloud projects create $project_name --name=$project_name_display #var
 gcloud billing projects link $project_name --billing-account $billing_account  #var
 gcloud auth application-default login
-gcloud auth application-default set-quota-project $project_name -y
+gcloud auth application-default set-quota-project $project_name 
 gcloud storage buckets create gs://$bucket --location=US --project=$project_name #var
 
