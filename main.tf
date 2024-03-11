@@ -4,7 +4,7 @@ provider "google" {
 
  terraform { 
   backend "gcs" {
-    bucket  = "project00-group-hera" #Cannot use variables.
+    bucket  = "project01-group-hera" #Cannot use variables.
     prefix = "terraform/state"
   }
 
@@ -18,15 +18,19 @@ provider "google" {
     required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "~> 5.00.0"
+      version = "~> 3.0"
+    }
+    helm = {
+      source  = "hashicorp/helm"
+      version = "~> 2.0"
     }
     local = {
       source  = "hashicorp/local"
-      version = ">= 2.0.0"
+      version = ">= 2.0"
     }
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = ">= 2.0.0"
+      version = ">= 2.0"
     }
   }
  }

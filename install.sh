@@ -2,10 +2,10 @@
 
 
 # Variables:
-project_name="project-group-hera-00"
-project_name_display="Group-Project-00"
+project_name="project-group-hera-01"
+project_name_display="Group-Project-01"
 billing_account="014687-E3A505-12EFE8"
-bucket="project00-group-hera"
+bucket="project01-group-hera"
 
 #Installing kubectl:
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -16,7 +16,7 @@ sudo apt-update
 sudo apt-get install apt-transport-https ca-certificates gnupg curl sudo -y
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-sudo apt-get update && sudo apt-get install google-cloud-cli 
+sudo apt-get update && sudo apt-get install google-cloud-cli -y
 apt-get install google-cloud-sdk-gke-gcloud-auth-plugin -y
 
 
@@ -39,6 +39,6 @@ gcloud auth login
 gcloud projects create $project_name --name=$project_name_display #var
 gcloud billing projects link $project_name --billing-account $billing_account  #var
 gcloud auth application-default login
-gcloud auth application-default set-quota-project $project_name
+gcloud auth application-default set-quota-project $project_name -y
 gcloud storage buckets create gs://$bucket --location=US --project=$project_name #var
 
