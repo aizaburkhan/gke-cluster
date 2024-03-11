@@ -1,6 +1,6 @@
 variable project_name {
   type        = string
-  default     = "project-group-hera-10"
+  default     = "project-group-hera-11"
 }
 
 variable region {
