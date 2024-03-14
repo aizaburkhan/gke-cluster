@@ -1,11 +1,10 @@
-cat k8s-serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: dashboard-admin
   namespace: kubernetes-dashboard
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: cluster-admin-rolebinding
