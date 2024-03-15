@@ -2,10 +2,10 @@
 
 
 # Variables:
-project_name="project-group-hera-test"
+project_name="project-group-hera-test2"
 project_name_display="Group-Project"
-billing_account="01F858-2C12A2-833EA3"
-bucket="test-project-group-hera"
+billing_account="###"
+bucket="test2-project-group-hera"
 region="us-central1"
 cluster_name="group-project-3"
 
@@ -48,7 +48,7 @@ gcloud storage buckets create gs://$bucket --location=US --project=$project_name
 terraform init
 terraform apply -auto-approve
 
-Deploying kubernetes-dashboard in the cluster:
+# Deploying kubernetes-dashboard in the cluster:
 gcloud container clusters get-credentials $cluster_name --region $region --project $project_name
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
 kubectl patch svc kubernetes-dashboard --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"}]' -n kubernetes-dashboard
