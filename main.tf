@@ -4,7 +4,7 @@ provider "google" {
 
  terraform { 
   backend "gcs" {
-    bucket  = "test2-project-group-hera" #Cannot use variables.
+    bucket  = "test3-project-group-hera" #Cannot use variables.
     prefix = "terraform/state"
   }
 

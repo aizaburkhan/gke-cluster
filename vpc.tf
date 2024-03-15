@@ -1,12 +1,12 @@
 resource "google_project_service" "compute_api" {
   service = "compute.googleapis.com"
-  project = var.project_name #variables
+  project = var.project_name 
 
 }
 
 resource "google_project_service" "container_api" {
   service = "container.googleapis.com"
-  project = var.project_name #variables
+  project = var.project_name 
 }
 
 resource "google_compute_network" "vpc_network" {

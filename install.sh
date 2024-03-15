@@ -2,10 +2,10 @@
 
 
 # Variables:
-project_name="project-group-hera-test2"
+project_name="project-group-hera-test3"
 project_name_display="Group-Project"
-billing_account="###"
-bucket="test2-project-group-hera"
+billing_account="##"
+bucket="test3-project-group-hera"
 region="us-central1"
 cluster_name="group-project-3"
 
