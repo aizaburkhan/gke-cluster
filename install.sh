@@ -2,10 +2,10 @@
 
 
 # Variables:
-project_name="project-group-hera-test3"
+project_name="project-group-hera-test4"
 project_name_display="Group-Project"
-billing_account="##"
-bucket="test3-project-group-hera"
+billing_account="###"
+bucket="test4-project-group-hera"
 region="us-central1"
 cluster_name="group-project-3"
 
@@ -56,4 +56,4 @@ kubectl create sa admin -n kubernetes-dashboard
 kubectl create clusterrolebinding cluster-admin-rolebinding --clusterrole=cluster-admin --serviceaccount=kubernetes-dashboard:admin -n kubernetes-dashboard
 kubectl create token admin -n kubernetes-dashboard > token
 cat token
-kubectl proxy
+
