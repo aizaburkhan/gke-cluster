@@ -7,9 +7,10 @@ resource "google_container_cluster" "primary" {
   initial_node_count       = 1
   network    = google_compute_network.vpc_network.id
   subnetwork = google_compute_subnetwork.private.self_link
-  networking_mode = "VPC_NATIVE"
+  networking_mode = "VPC_NATIVE"  #Determines whether alias IPs or routes will be used for pod IPs in the cluster. Options are VPC_NATIVE or ROUTES. VPC_NATIVE enables IP aliasing. Newly created clusters will default to VPC_NATIVE.
 
-  ip_allocation_policy {
+#Configuration of cluster IP allocation for VPC-native clusters. If this block is unset during creation, it will be set by the GKE backend.   
+ip_allocation_policy {
     cluster_secondary_range_name = var.secondary_ip_range1_name
     services_secondary_range_name = var.secondary_ip_range2_name
   }
@@ -28,12 +29,12 @@ resource "google_container_node_pool" "primary" {
   node_count = 1
   
   management {
-    auto_repair = true
-    auto_upgrade = true
+    auto_repair = true #Whether the nodes will be automatically repaired. Enabled by default.
+    auto_upgrade = true #Whether the nodes will be automatically upgraded. Enabled by default.
   }
 
   node_config {
-    preemptible  = false
+    preemptible  = false #Preemptible instances are VM instances that can be created at a much lower price than a regular instance. The only difference is that the compute engine can terminate these instances if those resources need to be reclaimed for other tasks.
     machine_type = var.instance_type
 
     labels = {
