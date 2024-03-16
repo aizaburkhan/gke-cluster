@@ -13,8 +13,8 @@ resource "google_compute_router_nat" "nat" {
   router                             = google_compute_router.router.name
   region                             = google_compute_router.router.region
 
-  source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
-  nat_ip_allocate_option = "MANUAL_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"  #How NAT should be configured per Subnetwork. If ALL_SUBNETWORKS_ALL_IP_RANGES, all of the IP ranges in every Subnetwork are allowed to Nat. If ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, all of the primary IP ranges in every Subnetwork are allowed to Nat. LIST_OF_SUBNETWORKS: A list of Subnetworks are allowed to NAT.
+  nat_ip_allocate_option = "MANUAL_ONLY"  #How external IPs should be allocated for this NAT. Valid values are AUTO_ONLY for only allowing NAT IPs allocated by Google Cloud Platform, or MANUAL_ONLY for only user-allocated NAT IP addresses. Possible values are: MANUAL_ONLY, AUTO_ONLY.
 
   subnetwork {
     name = google_compute_subnetwork.private.id
