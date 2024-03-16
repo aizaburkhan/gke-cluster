@@ -1,6 +1,6 @@
 variable project_name {
   type        = string
-  default     = "kubernetes-dashboard"
+  default     = "kubernetes-dashboard-group-3"
 }
 
 variable region {
@@ -86,16 +86,6 @@ variable kubeconfig {
 variable kubernetes_dashboard {
   type        = string
   default     = "kubernetes-dashboard"
-}
-
-variable dashboard_repo {
-  type        = string
-  default     = "https://kubernetes.github.io/dashboard/"
-}
-
-variable namespace {
-  type        = string
-  default     = "kube-system"
 }
 
 variable service_type {

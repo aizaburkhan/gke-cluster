@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables:
-project_name="kubernetes-dashboard"
+project_name="kubernetes-dashboard-group-3"
 project_name_display="Project-Group-3"
 billing_account="01F858-2C12A2-833EA3"
 bucket="kubernetes-dashboard-group3"
