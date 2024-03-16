@@ -3,8 +3,8 @@ resource "google_compute_subnetwork" "private" {
   project       = var.project_name 
   ip_cidr_range = var.subnet_cidr
   region        = var.region
-  network       = google_compute_network.vpc_network.id
-  private_ip_google_access = true
+  network       = google_compute_network.vpc_network.id  
+  private_ip_google_access = true  #VMs without external IPs can access Google API services
 
   # This secondary IP range might be used to allocate IP addresses specifically for pods in a Kubernetes cluster deployed within the subnetwork. In a Kubernetes environment, each pod typically requires its own IP address, so a separate IP range may be allocated for pod IP addresses to ensure proper network segmentation and efficient IP address management.
   secondary_ip_range {
