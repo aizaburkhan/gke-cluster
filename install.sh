@@ -1,11 +1,10 @@
 #!/bin/bash
 
-
 # Variables:
-project_name="project-group-hera-test4"
-project_name_display="Group-Project"
-billing_account="###"
-bucket="test4-project-group-hera"
+project_name="kubernetes-dashboard"
+project_name_display="Project-Group-3"
+billing_account="01F858-2C12A2-833EA3"
+bucket="kubernetes-dashboard-group3"
 region="us-central1"
 cluster_name="group-project-3"
 
@@ -27,13 +26,6 @@ sudo apt install unzip -y
 wget https://releases.hashicorp.com/terraform/1.7.4/terraform_1.7.4_linux_amd64.zip
 unzip terraform_1.7.4_linux_amd64.zip
 sudo mv terraform /usr/local/bin
-
-# Installing helm:
-wget https://get.helm.sh/helm-v3.14.2-linux-amd64.tar.gz
-helm=$(ls | grep helm-)
-tar -zxvf $helm
-binary=$(ls | grep ^linux-amd64)
-mv $binary/helm /usr/local/bin
 
 
 # Authorizing gcloud SDK, creating project and bucket:
